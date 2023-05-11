@@ -36,6 +36,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = 'article_new.html'
     fields = ('title', 'body')
+    success_url = reverse_lazy('article_list')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
